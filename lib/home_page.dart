@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:task2/todo.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
 
+final todoList =ToDo.todoList();
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -57,13 +58,10 @@ class _HomePageState extends State<HomePage> {
             margin: EdgeInsets.all(15),
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(15)),
-            child: ListView(
-              shrinkWrap: true,
-              children: [
-                CheckList(),
-                CheckList(),
-                CheckList(),
-              ],
+            child: ListView.builder(
+              shrinkWrap: true, itemBuilder: (context, i)=> CheckList(),
+              itemCount: 5,
+
             ),
           ),
         ],
@@ -80,14 +78,17 @@ class CheckList extends StatefulWidget {
 }
 
 class _CheckListState extends State<CheckList> {
+
+
   bool usa = false;
+
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: ListTile(
         title: Text(
-          'go to home',
+         'dfs sdfsdsw ewtys',
           style: TextStyle(decoration: TextDecoration.lineThrough),
         ),
         leading: Checkbox(
